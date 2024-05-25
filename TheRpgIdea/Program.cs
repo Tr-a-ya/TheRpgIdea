@@ -126,23 +126,75 @@ FreeRoam ();
 
 int Str = 12;
 int Dex = 12;
+int Wis = 12;
 
 
 string poiTheChest = "chest";
-static void PoiTheChest(int Str, int Dex)
+static bool PoiTheChest(int Str, int Dex)
 {
+    string userInput;
     Console.WriteLine("Upon closer inspection, the chest appears to be roughly hewn from scrapwood and sheet metal, not like your typical storage chests. The thing looks more like a hastily thrown together bin with a lock.");
     if (Str >= 11)
     {
         Console.WriteLine("The lock seems secrue enough, but the boxes construction is shody at best, you think you might be able to simply smash through the side.");
         Console.WriteLine("Press the 'S' key to smash the box.");
+        userInput = Console.ReadLine();
+        if (userInput == "s" )
+        {
+            Console.WriteLine("You rear back in preparation to kick the thing with all your might.");
+            Console.WriteLine("CRASH!!");
+            Console.WriteLine("Your armored clad boot tears wood from metal, leaving the contents exposed");
+            Continue();
+            Console.WriteLine("Legend of Zelda treasure chest music .mp4");
+            Console.WriteLine("You found a mysterious blue stone.");
+                return true;
+        }
+        else
+        {
+            Console.WriteLine("Better not mess around with this too much.");
+            return false;
+        }
+
         
            
     }
+    else if (Dex >= 11)
+    {
+        Console.WriteLine("Upon closer inspection, the lock seems to like it would be easily raked open with the proper set of picks. A set you happen to be proficient with.");
+        Console.WriteLine("Press the 'P' key to pick the lock.");
+        userInput = Console.ReadLine();
+        if (userInput == "p" ) 
+        {
+            Console.WriteLine("You deftly slip your metalic shim into the lock making short work of its defences.");
+            Continue();
+            Console.WriteLine("Legend of Zelda treasure chest music .mp4");
+            Console.WriteLine("You found a mysterious blue stone.");
+            return true;
+        }
+        else
+        {
+            Console.WriteLine("Better not mess around with this too much.");
+            return false;
+        }
+    }
+    else
+    {
+        Console.WriteLine("Hmm, it looks like without a key there isnt much you can do.");
+        return false;
+    }
 }
-static void PoiTheMimic()
+static bool PoiTheMimic(int Wis)
 {
-
+    if (Wis >= 11 )
+    {
+        Console.WriteLine("As you turn to walk away, you see something shift out of the corner of your eye.");
+        Console.WriteLine("After a second look, nothing looks out of sorts, so you decide to move forward with your weapon drawn as a precaution.");
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 static bool PointOfInterest(string poiName)
 {
@@ -173,6 +225,6 @@ if(PointOfInterest(poiTheChest))
 }
 else
 {
-    PoiTheMimic();
+    PoiTheMimic(Wis);
 }
     
