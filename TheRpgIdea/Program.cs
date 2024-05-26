@@ -128,6 +128,7 @@ int Str = 12;
 int Dex = 12;
 int Wis = 12;
 
+string poiTheFog = "heavy fog";
 
 string poiTheChest = "chest";
 static bool PoiTheChest(int Str, int Dex)
@@ -136,14 +137,14 @@ static bool PoiTheChest(int Str, int Dex)
     Console.WriteLine("Upon closer inspection, the chest appears to be roughly hewn from scrapwood and sheet metal, not like your typical storage chests. The thing looks more like a hastily thrown together bin with a lock.");
     if (Str >= 11)
     {
-        Console.WriteLine("The lock seems secrue enough, but the boxes construction is shody at best, you think you might be able to simply smash through the side.");
+        Console.WriteLine("The lock seems secure enough, but the boxes construction is shody at best, you think you might be able to simply smash through the side.");
         Console.WriteLine("Press the 'S' key to smash the box.");
         userInput = Console.ReadLine();
         if (userInput == "s" )
         {
             Console.WriteLine("You rear back in preparation to kick the thing with all your might.");
             Console.WriteLine("CRASH!!");
-            Console.WriteLine("Your armored clad boot tears wood from metal, leaving the contents exposed");
+            Console.WriteLine("Your armored clad boot tears wood from metal, leaving the contents exposed.");
             Continue();
             Console.WriteLine("Legend of Zelda treasure chest music .mp4");
             Console.WriteLine("You found a mysterious blue stone.");
@@ -196,7 +197,7 @@ static bool PoiTheMimic(int Wis)
         return false;
     }
 }
-static bool PointOfInterest(string poiName)
+static bool PointOfInterestRunner(string poiName)
 {
     Console.WriteLine("You notice a " + poiName + " a short ways ahead." );
     Console.WriteLine("Press 'enter' to approach.");
@@ -219,12 +220,26 @@ static bool PointOfInterest(string poiName)
 }
 
 
-if(PointOfInterest(poiTheChest))
+if(PointOfInterestRunner(poiTheChest))
 {
     PoiTheChest(Str, Dex);
 }
 else
 {
     PoiTheMimic(Wis);
+}
+
+static bool PoiTheFog(int Wis, int Int)
+{
+    Console.WriteLine("");
+}
+
+if(PointOfInterestRunner(poiTheFog))
+{
+    PoiTheFog();
+}
+else
+{
+    Continue();
 }
     
