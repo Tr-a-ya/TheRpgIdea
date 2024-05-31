@@ -1,7 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
+// See https://aka.ms/new-console-template for more information
 using System;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
+using TheRpgIdea;
+
 /*
 string playerClass = ("");
 string classChoice = ("");
@@ -46,7 +49,7 @@ Console.WriteLine(" Press enter to continue");
 Console.ReadLine();
 Console.Clear();
 */
-static void Continue()
+   static void Continue()
 {
     Console.WriteLine("Press 'enter' to continue");
     Console.ReadLine();
@@ -229,7 +232,7 @@ else
     PoiTheMimic(Wis);
 }
 
-static bool PoiTheFog(int Wis, int Int)
+/*static bool PoiTheFog(int Wis, int Int)
 {
     Console.WriteLine("");
 }
@@ -241,5 +244,4 @@ if(PointOfInterestRunner(poiTheFog))
 else
 {
     Continue();
-}
-    
+}*/
